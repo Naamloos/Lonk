@@ -19,12 +19,11 @@
                         <div style="text-shadow: 0px 0px 5px <?php echo $link["color"] ?>">
                             <div class="item">
                                 <div class="itempic">
-                                    <img src="<?php echo $link["img"] ?>" alt="<?php echo $link["name"] ?>"/>
+                                    <img src="<?php echo $link["image"] ?>" alt="<?php echo $link["title"] ?>"/>
                                 </div>
                                 <div class="itemcontent">
-                                    <div class="itemname"><h1><?php echo $link["name"] ?></h1></div>
-                                    <div class="itemdesc"><p><?php echo $link["desc"] ?></p></div>
-                                    <div class="itemurl"><?php echo $link["url"] ?></div>
+                                    <div class="itemname"><h1><?php echo $link["title"] ?></h1></div>
+                                    <div class="itemurl"><?php echo $link["sitename"]; if($link["sitename"] != ""){ echo ': '; } echo $link["url"]; ?></div>
                                 </div>
                             </div>
                         </div>

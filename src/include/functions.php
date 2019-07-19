@@ -22,24 +22,23 @@
 
     function GetLinks(){
         $res = false;
-        $query = "SELECT id, name, description, url, img, color FROM link";
+        $query = "SELECT id, title, image, url, sitename FROM link";
 
         if($conn = mysqli_connect(DB_HOST, DB_USER, DB_PASS)){
             if(mysqli_select_db($conn, DB_NAME)){
                 if($stmt = mysqli_prepare($conn, $query)){
                     if(mysqli_stmt_execute($stmt)){
                         if(mysqli_stmt_store_result($stmt)){
-                            if(mysqli_stmt_bind_result($stmt, $id, $name, $desc, $url, $img, $color)){
+                            if(mysqli_stmt_bind_result($stmt, $id, $title, $img, $url, $sitename)){
                                 $res = array();
                                 if(mysqli_stmt_num_rows($stmt) > 0){
                                     while(mysqli_stmt_fetch($stmt)){
                                         array_push($res, array(
                                             "id" => $id,
-                                            "name" => $name,
-                                            "desc" => $desc,
+                                            "title" => $title,
+                                            "image" => $img,
                                             "url" => $url,
-                                            "img" => $img,
-                                            "color" => $color
+                                            "sitename" => $sitename
                                         ));
                                     }
                                 }else{
